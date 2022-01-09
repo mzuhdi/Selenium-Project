@@ -1,0 +1,3 @@
+PageObject\CartPage.class
+locating\elements\LocatingElementsTest.class
+locating\elements\WebDriverMethods.class

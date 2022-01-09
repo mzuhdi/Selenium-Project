@@ -1,10 +1,7 @@
 package locating.elements;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -80,11 +77,22 @@ public class LocatingElementsTest {
         driver.findElement(By.cssSelector("#login-button")).click();
 
         //Use XPath
-        driver.findElement(By.xpath("//*button[@id='add-to-cart-sauce-labs-backpack']")).click();
-        driver.findElement(By.xpath("//*a[@class='shopping_cart_link']")).click();
-        driver.findElement(By.xpath("//*[@id='checkout'")).click();
+        driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']")).click();
+        driver.findElement(By.xpath("//a[@class='shopping_cart_link']")).click();
+        driver.findElement(By.xpath("//*[@id='checkout']")).click();
 
         //use the best locator
+        driver.findElement(By.id("first-name")).sendKeys("big");
+        driver.findElement(By.id("last-name")).sendKeys("dawg");
+        driver.findElement(By.id("postal-code")).sendKeys("123456");
+        driver.findElement(By.id("continue")).click();
+
+        //By link test, not working ??
+        //driver.findElement(By.linkText("Finish")).click();
+
+        driver.findElement(By.cssSelector(".btn_action.btn_medium")).click();
+
+        Assert.assertTrue(driver.findElement(By.cssSelector("#checkout_complete_container")).isDisplayed());
 
 
     }
