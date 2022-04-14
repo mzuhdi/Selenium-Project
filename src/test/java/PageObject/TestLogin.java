@@ -44,6 +44,20 @@ public class TestLogin {
         cartPage.atCartPage();
         cartPage.gotoCheckout();
     }
+    @Test
+    public void testCheckoutPage(){
+        testCartPage();
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        checkoutPage.atCheckoutPage();
+        checkoutPage.inputDetails("Bob", "Builder", 11111);
+    }
+    @Test
+    public void testCheckoutPage2(){
+        testCheckoutPage();
+        CheckoutPage2 checkoutPage2 = new CheckoutPage2(driver);
+        checkoutPage2.atCheckoutPage2();
+        checkoutPage2.clickFinish();
+    }
 
     @After
     public void teardown(){
